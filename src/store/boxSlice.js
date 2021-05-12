@@ -8,7 +8,7 @@ const initialState = {
           category: 'liquid',
           price: 10,
           priceUnit: '$',
-          image: '#000',
+          image: '#607d8b',
           howMany: 0
         },
         {
@@ -17,7 +17,7 @@ const initialState = {
           category: 'solid',
           price: 20,
           priceUnit: '$',
-          image: '#ddd',
+          image: '#899ba2',
           howMany: 0
         },
         {
@@ -26,16 +26,70 @@ const initialState = {
           category: 'liquid',
           price: 30,
           priceUnit: '$',
-          image: '#f00',
+          image: '#607d8b',
           howMany: 0
         },
         {
           id: 4,
           name: 'Item Image',
-          category: 'liquid',
+          category: 'solid',
           price: 40,
           priceUnit: '$',
-          image: '#ddd',
+          image: '#899ba2',
+          howMany: 0
+        },
+        {
+          id: 5,
+          name: 'Item Image',
+          category: 'liquid',
+          price: 50,
+          priceUnit: '$',
+          image: '#607d8b',
+          howMany: 0
+        },
+        {
+          id: 6,
+          name: 'Item Image',
+          category: 'solid',
+          price: 60,
+          priceUnit: '$',
+          image: '#899ba2',
+          howMany: 0
+        },
+        {
+          id: 7,
+          name: 'Item Image',
+          category: 'liquid',
+          price: 70,
+          priceUnit: '$',
+          image: '#607d8b',
+          howMany: 0
+        },
+        {
+          id: 8,
+          name: 'Item Image',
+          category: 'solid',
+          price: 80,
+          priceUnit: '$',
+          image: '#899ba2',
+          howMany: 0
+        },
+        {
+          id: 9,
+          name: 'Item Image',
+          category: 'liquid',
+          price: 90,
+          priceUnit: '$',
+          image: '#607d8b',
+          howMany: 0
+        },
+        {
+          id: 10,
+          name: 'Item Image',
+          category: 'solid',
+          price: 10,
+          priceUnit: '$',
+          image: '#899ba2',
           howMany: 0
         },
   ],

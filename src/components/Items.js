@@ -58,7 +58,7 @@ const Items = () => {
                         </div>
                         
                         
-                        <p>{data.priceUnit}{data.price}</p>
+                        <p className="my-2 text-left" style={{fontSize: "18px"}}>{data.priceUnit}{data.price}</p>
                     </div>
                 </div>
                 ))}
