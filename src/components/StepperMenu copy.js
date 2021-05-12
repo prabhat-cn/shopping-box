@@ -6,6 +6,7 @@ import StepLabel from '@material-ui/core/StepLabel';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import CategoryBox from './CategoryBox';
+import Items from './Items';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -29,7 +30,7 @@ function getStepContent(stepIndex) {
     case 0:
       return <CategoryBox />;
     case 1:
-      return 'Choose Your Items';
+      return <Items />;
     case 2:
       return 'Select Your Card';
     case 3:
@@ -39,7 +40,7 @@ function getStepContent(stepIndex) {
   }
 }
 
-const FrontPage = () => {
+const StepperMenu = () => {
   const classes = useStyles();
   const [activeStep, setActiveStep] = React.useState(0);
   const steps = getSteps();
@@ -93,4 +94,4 @@ const FrontPage = () => {
   );
 }
 
-export default FrontPage;
+export default StepperMenu;

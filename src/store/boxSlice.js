@@ -2,83 +2,54 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   boxes: [
-    {
-      "id": 1,
-      "name": "Item-1",
-      "image": "Item Image",
-      "category": "Solid",
-      "quantity": 10,
-      "currency": "$",
-      "price": 20
-    },
-    {
-      "id": 2,
-      "name": "Item-2",
-      "image": "Item Image",
-      "category": "Solid",
-      "quantity": 10,
-      "currency": "$",
-      "price": 20
-    },
-    {
-      "id": 3,
-      "name": "Item-5",
-      "image": "Item Image",
-      "category": "Solid",
-      "quantity": 10,
-      "currency": "$",
-      "price": 20
-    },
-    {
-      "id": 4,
-      "name": "Item-4",
-      "image": "Item Image",
-      "category": "White Box",
-      "quantity": 10,
-      "currency": "$",
-      "price": 20
-    },
-    {
-      "id": 5,
-      "name": "Item-1",
-      "image": "Item Image",
-      "category": "Black Box",
-      "quantity": 10,
-      "currency": "$",
-      "price": 20
-    },
-    {
-      "id": 6,
-      "name": "Item-2",
-      "image": "Item Image",
-      "category": "Black Box",
-      "quantity": 10,
-      "currency": "$",
-      "price": 20
-    },
-    {
-      "id": 7,
-      "name": "Item-3",
-      "image": "Item Image",
-      "category": "Black Box",
-      "quantity": 10,
-      "currency": "$",
-      "price": 20
-    },
-    {
-      "id": 8,
-      "name": "Item-4",
-      "image": "Item Image",
-      "category": "Black Box",
-      "quantity": 10,
-      "currency": "$",
-      "price": 20
-    },
-    
+        {
+          id: 1,
+          name: 'Item Image',
+          category: 'liquid',
+          price: 10,
+          priceUnit: '$',
+          image: '#000',
+          howMany: 0
+        },
+        {
+          id: 2,
+          name: 'Item Image',
+          category: 'solid',
+          price: 20,
+          priceUnit: '$',
+          image: '#ddd',
+          howMany: 0
+        },
+        {
+          id: 3,
+          name: 'Item Image',
+          category: 'liquid',
+          price: 30,
+          priceUnit: '$',
+          image: '#f00',
+          howMany: 0
+        },
+        {
+          id: 4,
+          name: 'Item Image',
+          category: 'liquid',
+          price: 40,
+          priceUnit: '$',
+          image: '#ddd',
+          howMany: 0
+        },
   ],
-  box: "",
-  count: 0, 
-  status: null,
+  selectedBoxType: '',
+  steps: [
+    {id: 1, title: 'Step - 1', subText: 'Hello world'},
+    {id: 2, title: 'Step - 2', subText: 'Hello world 2'},
+    {id: 3, title: 'Step - 3', subText: 'Hello world 3'},
+    {id: 4, title: 'Step - 4', subText: 'Hello world 4'}
+  ],
+  selectedSteps: [
+    {id: 1, title: 'Step - 1', subText: 'Hello world'},
+  ],
+  paymentStatus: '',
 }
 
 const boxSlice = createSlice({

@@ -45,30 +45,51 @@ p.div-inp {
 }
 
 .container.whole-container {
-  background: #00000054;
+  background: #a0a0a054;
   padding: 60px;
   margin-bottom: 30px;
 }
 
+.div-inner a {
+  color: #000;
+}
 
+.div-inner a:hover {
+  color: rgb(157 167 11);
+  text-decoration: none;
+}
 
+.whole-container h1{
+  text-align: center;
+  font-size: 30px; margin-bottom: 16px;
+}
+.left-pan {
+  border-right: 1px solid #717070;
+}
 
+.div-inner1 h3 {
+  text-align: center;
+  font-size: 22px;
+  margin-top: 14px;
+}
 
+.row.items {
+  border: 1px solid #717070;
+  background: #fff;
+}
 
+/* .full-inner{
+  background: #fff;
+} */
 
+.row.items1 {
+  background: #fff;
+  padding-top: 23px;
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
+.div-inner1 h4 {
+  text-align: center;
+}
 
 
 
