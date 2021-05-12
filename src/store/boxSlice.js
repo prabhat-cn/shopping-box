@@ -104,6 +104,7 @@ const initialState = {
     {id: 1, title: 'Step - 1', subText: 'Hello world'},
   ],
   paymentStatus: '',
+  count: 1
 }
 
 const boxSlice = createSlice({
@@ -111,13 +112,13 @@ const boxSlice = createSlice({
     initialState,
     reducers: {
       increment: (state) => {
-        state.count += 1;
+        state.howMany += 1;
       },
       decrement: (state) => {
-        state.count -= 1;
+        state.howMany -= 1;
       },
       incrementByAmount: (state, action) => {
-        state.count += action.payload;
+        state.howMany += action.payload;
       }
     }
 });

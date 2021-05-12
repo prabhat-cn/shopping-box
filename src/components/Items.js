@@ -1,11 +1,16 @@
 import React from 'react'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
+import {increment, decrement, incrementByAmount} from '../store/boxSlice'
 import { Link } from 'react-router-dom'
 
 const Items = () => {
+    
 
     const boxData = useSelector((boxState) => boxState.boxName.boxes);
-    console.log('boxData', boxData)
+    // console.log('boxData', boxData)
+    const dispatch = useDispatch();
+    const count = useSelector((state) => state.boxName.boxes);
+    console.log('count', count)
 
     return (
         <div className="container whole-container">
@@ -46,15 +51,24 @@ const Items = () => {
                 {boxData.map((data) => (
                     <div className="col-sm-3 col-md-3 col-lg-3" key={data.id}>
                     <div className="div-inner1 text-center" >
-                        <div className="div-inner1" style={{background: data.image, color: "#fff"}}>
+                        <div className="div-inner1 py-4" style={{background: data.image, color: "#fff"}}>
                         <h4>{data.name}</h4>
-                        {data.howMany === 0 ? (
-                            <button
-                            className="btn btn-danger my-3 text-center"
+                        {data.howMany > 0 ? (
+                            <>
+                            <button onClick={() => dispatch(decrement())}> - </button>
+
+                              <input type="text" value={count} />
+
+                            <button onClick={() => dispatch(increment())}> + </button>
+                            </>
+                            
+                        ): 
+                        <button
+                            className="btn btn-info my-3 text-center"
                             >
                             Add To Box
                             </button>
-                        ): null}
+                      }
                         </div>
                         
                         
