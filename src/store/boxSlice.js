@@ -22,7 +22,7 @@ const initialState = {
     },
     {
       "id": 3,
-      "name": "Item-4",
+      "name": "Item-5",
       "image": "Item Image",
       "category": "Solid",
       "quantity": 10,
