@@ -1,4 +1,7 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux'
+import { selectedStep } from '../store/boxSlice'
+
 import { makeStyles } from '@material-ui/core/styles';
 import Stepper from '@material-ui/core/Stepper';
 import Step from '@material-ui/core/Step';
@@ -41,8 +44,22 @@ function getStepContent(stepIndex) {
 }
 
 const StepperMenu = () => {
+
+  const dispatch = useDispatch();
+  const selectedStepData = useSelector((boxState) => boxState.boxName.selectedSteps)
+  console.log('selectedStepData', selectedStepData)
+  
+  const [activeStep, setActiveStep] = useState('');
+
+  useEffect(() => {
+    if(activeStep){
+      dispatch(selectedStep(selectedStepData.map(stepId => stepId.id)));
+    }else{
+    }
+  }, [activeStep]);
+
   const classes = useStyles();
-  const [activeStep, setActiveStep] = React.useState(0);
+  // const [activeStep, setActiveStep] = useState(0);
   const steps = getSteps();
 
   const handleNext = () => {

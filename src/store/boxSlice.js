@@ -119,13 +119,19 @@ const boxSlice = createSlice({
       },
       incrementByAmount: (state, action) => {
         state.howMany += action.payload;
+      },
+      selectedStep: (state, action) => {
+        state.selectedSteps = action.payload;
+      },
+      selectedBox: (state, action) => {
+        state.selectedBoxType = '';
       }
     }
 });
 
 // Action creators are generated for each case reducer function
 export const {
-  increment, decrement, incrementByAmount
+  increment, decrement, incrementByAmount, selectedStep, selectedBox
 } = boxSlice.actions
 export default boxSlice.reducer
 
