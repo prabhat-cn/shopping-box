@@ -70,9 +70,9 @@ const Items = () => {
                             </button>
                       }
                         </div>
-                        
-                        
-                        <p className="my-2 text-left" style={{fontSize: "18px"}}>{data.priceUnit}{data.price}</p>
+                        <p className="mt-2 mb-0 text-left" style={{fontSize: "18px"}}>{data.name}</p>
+                        <p className="mt-0 mb-1 text-left" style={{fontSize: "18px"}}>{data.category}</p>
+                        <p className="mt-0 mb-1 text-left" style={{fontSize: "18px"}}>{data.priceUnit}{data.price}</p>
                     </div>
                 </div>
                 ))}
