@@ -7,7 +7,7 @@ const Items = () => {
     
 
     const boxData = useSelector((boxState) => boxState.boxName.boxes);
-    // console.log('boxData', boxData)
+    // console.log('boxData ', boxData)
     const dispatch = useDispatch();
     const count = useSelector((state) => state.boxName.boxes);
     console.log('count', count)
