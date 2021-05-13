@@ -5,13 +5,13 @@ import { Link } from 'react-router-dom'
 
 const Items = () => {
     const [ searchItem, setSearchItem ] = useState('');
-    // const catData = useSelector((catState) => catState.boxName.categories);
+    
 
     const boxData = useSelector((boxState) => boxState.boxName.boxes);
     // console.log('boxData ', boxData)
     const dispatch = useDispatch();
     const count = useSelector((state) => state.boxName.boxes);
-    // console.log('count', count)
+    console.log('count', count)
 
     const handleCategory = e => {
         setSearchItem(e.target.value)
@@ -48,7 +48,7 @@ const Items = () => {
                     <option value=''>All Products</option>
                     {
                         boxData.map(categoryItem => (
-                            <option value={"category=" + categoryItem.category} key={categoryItem.id}>
+                            <option value={"category=" + categoryItem.id} key={categoryItem.id}>
                                 {categoryItem.category}
                             </option>
                         ))
@@ -60,8 +60,8 @@ const Items = () => {
                 
                     <div className="col-sm-6 col-md-6 col-lg-6">
                         <div className="div-inner1">
-                            <input type="text" value={searchItem} placeholder="Sort by category..." onChange={(e) => {
-                                setSearchItem(e.target.value);
+                            <input type="text" value={searchItem} placeholder="Sort by all..." onChange={(e) => {
+                                setSearchItem(e.target.value.toLowerCase());
                             }}/>
                         </div>
                     </div>

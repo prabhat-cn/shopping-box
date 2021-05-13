@@ -104,7 +104,15 @@ const initialState = {
     {id: 1, title: 'Step - 1', subText: 'Hello world'},
   ],
   paymentStatus: '',
-  count: 1
+  count: 1,
+  categories: [
+    {id: 1,
+    category: 'solid',
+    },
+    {id: 2,
+      category: 'liquid',
+    }
+  ],
 }
 
 const boxSlice = createSlice({
