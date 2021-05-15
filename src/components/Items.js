@@ -1,12 +1,12 @@
 import React, {useState} from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { increment, decrement } from '../store/boxSlice'
+import { increment, decrement, sort } from '../store/boxSlice'
 import { uniqBy, orderBy } from 'lodash';
 import  NumericInput  from 'react-numeric-input';
 
 const Items = () => {
     const [ searchItem, setSearchItem ] = useState('');
-    const [ sortPrice, setSortPrice ] = useState([]);
+    // const [ sortPrice, setSortPrice ] = useState([]);
     
     const dispatch = useDispatch();
     const counter = useSelector((state) => state.boxName.boxes.howMany);
@@ -42,7 +42,14 @@ const Items = () => {
                  
                     <div className="col-sm-4 col-md-4 col-lg-4">
                         <div className="div-inner1">
-                            <select name="category" onChange={handleChange} style={{height: "40px", padding: "0 5px", width: "100%", fontSize:"14px"}}>
+                            <select name="category" 
+                            onChange={handleChange} 
+                            style={{
+                                height: "40px", 
+                                padding: "0 5px", 
+                                width: "100%", 
+                                fontSize:"14px"
+                                }}>
                                 <option value=''>Sort By Category</option>
                                 {
                                     // "uniqBy" is lodash
@@ -62,19 +69,30 @@ const Items = () => {
                             {/* <input type="text" value={searchItem} placeholder="Sort by category..." onChange={(e) => {
                                 setSearchItem(e.target.value);
                             }}/> */}
-                            <input style={{height: "40px", padding: "0 5px", width: "100%", fontSize:"14px"}} type="text" placeholder="Search by name.." onChange={(e) => {
-                                setSearchItem(e.target.value);
-                            }}/> 
+                            <input 
+                                style={{
+                                height: "40px",
+                                padding: "0 5px", 
+                                width: "100%", 
+                                fontSize:"14px"}} 
+                                type="text" 
+                                placeholder="Search by name.." 
+                                onChange={(e) => {
+                                    setSearchItem(e.target.value);
+                                }}
+                            /> 
                             
                         </div>
                     </div>
 
                     <div className="col-sm-4 col-md-4 col-lg-4">
                         <div className="div-inner1">
-                            <select style={{height: "40px", padding: "0 5px", width: "100%", fontSize:"14px"}} value={sortPrice} onChange={(e) => console.log(setSortPrice(e.target.value))
-                                } >
-                                <option value='sortPrice=-price'>Price: Hight-Low</option>
-                                <option value='sortPrice=price'>Price: Low-High</option>
+                            <select 
+                            style={{height: "40px", padding: "0 5px", width: "100%", fontSize:"14px"}}  
+                            onChange={(e) => console.log(sort(e.target.value))}>
+                                <option value=''>All</option>
+                                <option value='hl'>Price: Hight-Low</option>
+                                <option value='lh'>Price: Low-High</option>
                             </select>
                         </div>
                     </div>
@@ -82,7 +100,7 @@ const Items = () => {
 
             <div className="row items1">
                 {boxData.filter((val) => {
-                    if(searchItem === "" && sortPrice === ""){
+                    if(searchItem === ""){
                         return val
                     }else if(val.category.toLowerCase().includes(searchItem.toLowerCase())){
                         return val
@@ -90,18 +108,18 @@ const Items = () => {
                     else if(val.name.toLowerCase().includes(searchItem.toLowerCase())){
                         return val
                     }
-                    else if(val.price.sortPrice){
+                    else if(val.searchItem){
                         return val
                     }
 
                 }).map((data) => (
                     <div className="col-sm-3 col-md-3 col-lg-3" key={data.id}>
                     <div className="div-inner1 text-center" >
-                        <div className="div-inner1 pt-4 pb-2" style={{background: data.image, color: "#fff"}}>
+                        <div className="div-inner1 pt-4 pb-2" 
+                        style={{background: data.image, color: "#fff"}}>
                         <h4>{data.name}</h4>
                         {data.howMany === 0 ? (
-                           <> 
-                           {counter} <button
+                           <><button
                             className="btn btn-info my-3 text-center"
                             onClick={(e) => dispatch(console.log('addCount->', increment(e.preventDefault())))}>
                             Add To Box

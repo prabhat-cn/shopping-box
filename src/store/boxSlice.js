@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import {orderBy} from 'lodash'
 
 const initialState = {
   boxes: [
@@ -124,13 +125,42 @@ const boxSlice = createSlice({
       },
       selectedBox: (state, action) => {
         state.selectedBoxType = action.payload;
-      }
+      },
+      sort: (state, action) => {
+
+        let newData = [];
+
+        if(action.payload.price === ''){
+          newData = orderBy(state.boxes, [action.payload.price], ['']);
+        } else if(action.payload.price === 'hl') {
+          newData = orderBy(state.boxes, [action.payload.price], ['desc']);
+          console.log('desc->', newData)
+        }
+        else if(action.payload.price === 'lh') {
+          newData = orderBy(state.boxes, [action.payload.price], ['asc']);
+          console.log('asc->', newData)
+        } else {
+          return newData;
+        }
+       
+          // let newData = [];
+          
+          // if(action.payload.price === 'hl'){
+          //   state.newData = orderBy(state.boxes, [action.payload.price], ['asc']);
+          // } else if(action.payload.price === 'lh') {
+          //   state.newData = orderBy(state.boxes, [action.payload.price], ['desc']);
+          // } else {
+          //   return state.newData;
+          // }
+           
+          
+      },
     }
 });
 
 // Action creators are generated for each case reducer function
 export const {
-  increment, decrement, incrementByAmount, selectedStep, selectedBox
+  increment, decrement, incrementByAmount, selectedStep, selectedBox, sort
 } = boxSlice.actions
 export default boxSlice.reducer
 
