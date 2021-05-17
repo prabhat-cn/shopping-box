@@ -113,7 +113,7 @@ p.div-inp {
 .box-slice {
   padding: 20px 20px;
   width: 180px;
-  height: 120px;
+  height: 120px; margin-top: 15px;
 }
 
 span.span-count {
@@ -128,11 +128,19 @@ span.span-count {
   font-weight: 600;
 }
 
+input.input-count {
+  width: 60%;
+}
 
+.selected-box {
+  background: #1a1212 !important;
+  color: #fff;
+  margin-top: 15px; display: inline-block;
+}
 
-
-
-
+.div-inner1.box-slice1 .col-md-6 {
+  display: inline-block;
+}
 
 
 

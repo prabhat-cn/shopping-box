@@ -18,14 +18,6 @@ const Items = () => {
     const handleChange = e => {
         setSearchItem(e.target.value)
     }
-    const getTotalPrice = () => {
-        let priceIn = 0;
-        boxData.map((sumData) => {
-          priceIn += sumData.price;
-          return 0
-        });
-        return priceIn;
-    };
 
     return (
         <>
@@ -33,16 +25,27 @@ const Items = () => {
             <h1>Choose Your Items</h1>
             <div className="row items">
                  
-                    <div className="col-sm-8 col-md-8 col-lg-8 left-pan">
+                    <div className="col-sm-7 col-md-7 col-lg-7 left-pan">
+                    <div className="div-inner1 box-slice1" >
                         {
                             boxType !== undefined?
-                            boxType == 'white'?
-                            <p>white box</p>
+                            boxType === 'white'?
+                            <div className="col-sm-3 col-md-12 col-lg-12 box-slice selected-box">
+                                <h3 >
+                                White Box
+                                </h3>
+                            </div>
+                            
                             :
-                            <p>black box</p>
+                            <div className="col-sm-3 col-md-12 col-lg-12 box-slice selected-box">
+                                <h3 >
+                                Black Box
+                                </h3>
+                            </div>
                             :
                             null
                         }
+                        </div>
                         
                             {boxData.map((data) => (
                                 <div className="div-inner1 box-slice1" key={data.id}>
@@ -63,30 +66,38 @@ const Items = () => {
                     </div>
                    
                 
-                    <div className="col-sm-4 col-md-4 col-lg-4 right-pan">
+                    <div className="col-sm-5 col-md-5 col-lg-5 right-pan">
                         <div className="div-inner1">
                             <h3>Box Contents</h3>
-                            {boxData.map((data) => (
-                                <div className="div-inner1 box-slice1" key={data.id}>
-                                        {data.howMany > 0 ? (
-                                            <div className="col-md-6">
-                                                <h5 className="span-count">{data.name}</h5>
-                                                <h3 id="p" >
-                                                ${data.howMany * data.price}
-                                                </h3>
-                                            </div>
+                            
+                            <div className="section one-sec">
+                                {boxData.map((data) => (
+                                    <div className="div-inner1 box-slice1" key={data.id}>
+                                            {data.howMany > 0 ? (
+                                                <>
+                                                <div className="col-md-6">
+                                                    <h5 className="span-count">{data.name}</h5>
+                                                    </div>
+                                                    <div className="col-md-6">
+                                                    <h3>
+                                                    ${data.howMany * data.price}
+                                                    </h3>
+                                                </div>
+                                                </>
+                                                
+                                            ): null
+                                            // <>
+                                            //  <div className="col-sm-4 col-md-12 col-lg-12 box-slice2" >
+                                            //  <p className="mt-2 mb-0 text-center" style={{fontSize: "18px"}}>No Box Item Found</p>
+                                            //     </div>
                                             
-                                        ): null
-                                        // <>
-                                        //  <div className="col-sm-4 col-md-12 col-lg-12 box-slice2" >
-                                        //  <p className="mt-2 mb-0 text-center" style={{fontSize: "18px"}}>No Box Item Found</p>
-                                        //     </div>
-                                        
-                                        // </>
-                                        }
-                                        
-                                </div>
-                            ))}
+                                            // </>
+                                            }
+                                            
+                                    </div>
+                                ))}
+                            </div>
+                            
                             
                             <hr/>
                             <div className="col-md-12">
@@ -202,9 +213,9 @@ const Items = () => {
                     </>
                     ): 
                     <>
-                        {/* <NumericInput  mobile className="form-control" /> */}
+                        {/* <NumericInput value={data.howMany} mobile className="form-control" onClick={() => dispatch(decrement(data))} onClick={() => dispatch(increment(data))}/> */}
                         <button type='button' onClick={() => dispatch(decrement(data))}>-</button>
-                            <input type="text" value={data.howMany} style={{textAlign: "center"}} />
+                            <input type="text" value={data.howMany} className="input-count" style={{textAlign: "center"}} />
                         <button type='button' onClick={() => dispatch(increment(data))}>+</button>
                     </>
                     }
