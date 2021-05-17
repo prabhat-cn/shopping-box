@@ -3,7 +3,7 @@ import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { selectedBox } from '../store/boxSlice'
 
-const CategoryBox = () => {
+const CategoryBox = (props) => {
     const dispatch = useDispatch();
     const boxValue = useSelector((boxState) => boxState.boxName.selectedBoxType);
     // console.log('boxData', boxData)

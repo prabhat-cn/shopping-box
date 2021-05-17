@@ -10,7 +10,8 @@ const initialState = {
           price: 10,
           priceUnit: '$',
           image: '#607d8b',
-          howMany: 0
+          howMany: 0,
+          selected: false,
         },
         {
           id: 2,
@@ -19,7 +20,8 @@ const initialState = {
           price: 20,
           priceUnit: '$',
           image: '#899ba2',
-          howMany: 0
+          howMany: 0,
+          selected: false,
         },
         {
           id: 3,
@@ -28,7 +30,8 @@ const initialState = {
           price: 30,
           priceUnit: '$',
           image: '#607d8b',
-          howMany: 0
+          howMany: 0,
+          selected: false,
         },
         {
           id: 4,
@@ -37,7 +40,8 @@ const initialState = {
           price: 30,
           priceUnit: '$',
           image: '#899ba2',
-          howMany: 0
+          howMany: 0,
+          selected: false,
         },
         {
           id: 5,
@@ -46,7 +50,8 @@ const initialState = {
           price: 50,
           priceUnit: '$',
           image: '#607d8b',
-          howMany: 0
+          howMany: 0,
+          selected: false,
         },
         {
           id: 6,
@@ -55,7 +60,8 @@ const initialState = {
           price: 60,
           priceUnit: '$',
           image: '#899ba2',
-          howMany: 0
+          howMany: 0,
+          selected: false,
         },
         {
           id: 7,
@@ -64,16 +70,18 @@ const initialState = {
           price: 70,
           priceUnit: '$',
           image: '#607d8b',
-          howMany: 0
+          howMany: 0,
+          selected: false,
         },
         {
           id: 8,
           name: 'White Image',
-            category: 'solid',
+          category: 'solid',
           price: 80,
           priceUnit: '$',
           image: '#899ba2',
-          howMany: 0
+          howMany: 0,
+          selected: false,
         },
         {
           id: 9,
@@ -82,7 +90,8 @@ const initialState = {
           price: 90,
           priceUnit: '$',
           image: '#607d8b',
-          howMany: 0
+          howMany: 0,
+          selected: false,
         },
         {
           id: 10,
@@ -91,7 +100,8 @@ const initialState = {
           price: 10,
           priceUnit: '$',
           image: '#899ba2',
-          howMany: 0
+          howMany: 0,
+          selected: false,
         },
   ],
   mainBoxes: [
@@ -102,7 +112,8 @@ const initialState = {
       price: 10,
       priceUnit: '$',
       image: '#607d8b',
-      howMany: 0
+      howMany: 0,
+      selected: false,
     },
     {
       id: 2,
@@ -111,7 +122,8 @@ const initialState = {
       price: 20,
       priceUnit: '$',
       image: '#899ba2',
-      howMany: 0
+      howMany: 0,
+      selected: false,
     },
     {
       id: 3,
@@ -120,7 +132,8 @@ const initialState = {
       price: 30,
       priceUnit: '$',
       image: '#607d8b',
-      howMany: 0
+      howMany: 0,
+      selected: false,
     },
     {
       id: 4,
@@ -129,7 +142,8 @@ const initialState = {
       price: 30,
       priceUnit: '$',
       image: '#899ba2',
-      howMany: 0
+      howMany: 0,
+      selected: false,
     },
     {
       id: 5,
@@ -138,16 +152,18 @@ const initialState = {
       price: 50,
       priceUnit: '$',
       image: '#607d8b',
-      howMany: 0
+      howMany: 0,
+      selected: false,
     },
     {
       id: 6,
       name: 'White Image',
-        category: 'solid',
+      category: 'solid',
       price: 60,
       priceUnit: '$',
       image: '#899ba2',
-      howMany: 0
+      howMany: 0,
+      selected: false,
     },
     {
       id: 7,
@@ -156,16 +172,18 @@ const initialState = {
       price: 70,
       priceUnit: '$',
       image: '#607d8b',
-      howMany: 0
+      howMany: 0,
+      selected: false,
     },
     {
       id: 8,
       name: 'White Image',
-        category: 'solid',
+      category: 'solid',
       price: 80,
       priceUnit: '$',
       image: '#899ba2',
-      howMany: 0
+      howMany: 0,
+      selected: false,
     },
     {
       id: 9,
@@ -174,7 +192,8 @@ const initialState = {
       price: 90,
       priceUnit: '$',
       image: '#607d8b',
-      howMany: 0
+      howMany: 0,
+      selected: false,
     },
     {
       id: 10,
@@ -183,7 +202,8 @@ const initialState = {
       price: 10,
       priceUnit: '$',
       image: '#899ba2',
-      howMany: 0
+      howMany: 0,
+      selected: false,
     },
   ],
   selectedBoxType: '',
@@ -197,6 +217,7 @@ const initialState = {
     {id: 1, title: 'Step - 1', subText: 'Hello world'},
   ],
   paymentStatus: '',
+  
 }
 
 const boxSlice = createSlice({
@@ -212,6 +233,7 @@ const boxSlice = createSlice({
         const filter = state.boxes.filter(m => {
           if(m.id === singleData.id) {
             m.howMany += 1;
+            
             return m;
           }
         });
@@ -264,12 +286,68 @@ const boxSlice = createSlice({
         state.boxes = newData;  
           
       },
+      addToCart: (state, action)=> {
+        let newData = [];
+        state.boxes.map((item) =>
+          item.id === action.id ? {...item, selected: true} : item,
+          
+        );
+        // if (action.payload) {
+        //   console.log(action.payload);
+        //   let idBoxesAction = action.payload.boxes.id;
+        //   console.log(idBoxesAction);
+        //   }
+      },
+      removeFromCart: (state, action) => {
+        state.boxes.map((item) =>
+          item.id === action.id
+            ? {...item, selected: false, howMany: 1}
+            : item,
+        );
+      },
+      addQuantity: (state, action) => {
+        state.boxes.map((item) =>
+        item.id === action.id
+            ? {...item, howMany: item.howMany + 1}
+            : item,
+        );
+      },
+      subQuantity: (state, action) => {
+        state.boxes.map(item =>
+          item.id === action.id
+            ? {
+                ...item,
+                quantity: item.howMany !== 1 ? item.howMany - 1 : 1,
+              }
+            : item,
+        );
+      },
+      emptyCart: (state) => {
+        state.boxes.map(item =>
+          item.selected
+            ? {...item, selected: false, howMany: 1}
+            : item,
+        );
+      },
+
+
+
     }
 });
 
 // Action creators are generated for each case reducer function
 export const {
-  increment, decrement, incrementByAmount, selectedStep, selectedBox, sort
+  increment, 
+  decrement, 
+  incrementByAmount, 
+  selectedStep, 
+  selectedBox, 
+  sort, 
+  addToCart, 
+  removeFromCart, 
+  addQuantity, 
+  subQuantity, 
+  emptyCart
 } = boxSlice.actions
 export default boxSlice.reducer
 
