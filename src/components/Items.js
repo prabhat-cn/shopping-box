@@ -25,7 +25,7 @@ const Items = () => {
           return 0
         });
         return priceIn;
-      };
+    };
 
     return (
         <>
@@ -69,20 +69,12 @@ const Items = () => {
                             {boxData.map((data) => (
                                 <div className="div-inner1 box-slice1" key={data.id}>
                                         {data.howMany > 0 ? (
-                                            <>
                                             <div className="col-md-6">
-                                            <h5 className="span-count">{data.name}</h5>
+                                                <h5 className="span-count">{data.name}</h5>
                                                 <h3 id="p" >
-                                                {data.howMany * data.price}
+                                                ${data.howMany * data.price}
                                                 </h3>
                                             </div>
-                                           
-                                            <hr/>
-                                            <div className="col-md-12">
-
-                                            Total Price: {Math.round(getTotalPrice())}
-                                            </div>
-                                            </>
                                             
                                         ): null
                                         // <>
@@ -95,6 +87,11 @@ const Items = () => {
                                         
                                 </div>
                             ))}
+                            
+                            <hr/>
+                            <div className="col-md-12">
+                                Total Price: ${boxData.map(m => m.howMany * m.price).reduce((a, b) => a + b, 0)}
+                            </div>
                             
                         </div>
                     </div>
