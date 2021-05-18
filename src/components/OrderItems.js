@@ -7,6 +7,7 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid'
 import { useSelector } from 'react-redux'
+import pdfIcon from '../assets/file-pdf-solid.svg'
 
 const useStyles = makeStyles({
   root: {
@@ -104,7 +105,15 @@ const useStyles = makeStyles({
             
         </div>
         <div className="col-md-12 fl-right">
-           <h3>Total Price</h3> <h3>{amount}</h3>
+            <div className="col-md-6">
+                <p><img style={{width: "5%"}} src={pdfIcon} alt="pdf" /> Download Order List </p>
+            </div>
+
+            <div className="col-md-6">
+                <h3>Total Price</h3> <h3>{amount}</h3>
+            </div>
+            
+           
 
         </div>
         </Grid>
