@@ -1,94 +1,45 @@
-import React, {useState} from 'react'
-import { TextField, Button } from "@material-ui/core";
-import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
-import { CountryDropdown } from 'react-country-region-selector';
-import axios from 'axios'
-import './styles.css';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import {loadStripe} from '@stripe/stripe-js';
+import {
+  CardElement,
+  Elements,
+  useStripe,
+  useElements,
+} from '@stripe/react-stripe-js';
 
+const CheckoutForm = () => {
+  const stripe = useStripe();
+  const elements = useElements();
 
-const CARD_OPTIONS = {
-	iconStyle: "solid",
-	style: {
-		base: {
-			iconColor: "#c4f0ff",
-			color: "#fff",
-			fontWeight: 500,
-			fontFamily: "Roboto, Open Sans, Segoe UI, sans-serif",
-			fontSize: "16px",
-			fontSmoothing: "antialiased",
-			":-webkit-autofill": { color: "#fce883" },
-			"::placeholder": { color: "#87bbfd" }
-		},
-		invalid: {
-			iconColor: "#ffc7ee",
-			color: "#ffc7ee"
-		}
-	}
-}
+  const handleSubmit = async (event) => {
+    console.log(event)
+    event.preventDefault();
+    const {error, paymentMethod} = await stripe.createPaymentMethod({
+      type: 'card',
+      card: elements.getElement(CardElement),
+    });
+    if(!error){
+        console.log(paymentMethod)
+    }
+  };
 
-const PaymentForm = () => {
+  return (
+    <form style={{ maxWidth: "400px", margin: "0 auto"}} onSubmit={handleSubmit}>
+      <CardElement />
+      <button type="submit" disabled={!stripe}>
+        Pay
+      </button>
+    </form>
+  );
+};
 
-    const [ success, setSuccess ] = useState(false)
-    const stripe = useStripe()
-    const elements = useElements()
+const stripePromise = loadStripe('pk_test_51IqzWcSDIz5xW9l7w2srw2xfPairSPsNrNqWFAIA6ThAKifLXZvZJjbi2CfJXcTnrSkS14VmTlNusnwS8Dlo26e800erVbrusq');
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        const {error, paymentMethod} = await stripe.createPaymentMethod({
-            type: "card",
-            card: elements.getElement(CardElement)
-        });
+const PaymentForm = () => (
+  <Elements stripe={stripePromise}>
+    <CheckoutForm />
+  </Elements>
+);
 
-        if(!error){
-            try{
-                const {id} = paymentMethod
-                const response = await axios.post("http://localhost:4000/payment", {
-                    amount: 1000,
-                    id
-                })
-
-                if(response.data.success) {
-                    console.log("Successful payment")
-                    setSuccess(true)
-                }
-                
-
-            }catch(error){
-                console.log('error', error);
-            }
-
-        }else {
-        console.log(error.message)
-        }
-    };
-
-    
-    return (
-        <>
-        {!success ?
-        
-        <form onSubmit={handleSubmit} className="FormGroup mb-4" >
-            <div className="FormRow">
-                    <CardElement options={CARD_OPTIONS}/>
-                </div>
-                <div className="mt-4">
-                <Button
-                className=''
-                variant="contained"
-                color="primary">
-                Pay Now
-            </Button>
-                </div>
-            
-        </form>
-        :
-        <div>
-           <h2>You just bought a sweet spatula congrats this is the best decision of you're life</h2>
-       </div> 
-         }
-        </>
-      
-    )
-}
-
-export default PaymentForm
+export default PaymentForm;

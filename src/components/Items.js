@@ -130,6 +130,7 @@ function Items() {
                                 name="Box Contents"
                                 amount={boxData.map(m => m.howMany * m.price).reduce((a, b) => a + b, 0) *100}
                                 currency="INR"
+                                ComponentClass="button"
                                 />
                             
                     </div>

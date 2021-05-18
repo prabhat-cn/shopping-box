@@ -8,6 +8,7 @@ import './App.css';
 
 import LinearStepper from './components/LinearStepper';
 import Items from './components/Items';
+import CategoryBox from './components/CategoryBox';
 
 
 const App = () => {
@@ -21,13 +22,13 @@ const App = () => {
     <CssBaseline />
       <Container component={Box} p={4}>
         <Paper component={Box} p={3}>
-      <Items />
+      {/* <Items /> */}
       {/* <LinearStepper /> */}
       <div className="App">
         <Switch>
         <Route exact path='/' component={LinearStepper} />
-          {/* <Route exact path='/' component={CategoryBox} /> */}
-          {/* <Route exact path='/category/items' component={Items} /> */}
+          <Route exact path='/categoryBox' component={CategoryBox} />
+          <Route exact path='/category/items' component={Items} />
           {/* <Route exact path='*'>404 Not Found!</Route> */}
         </Switch>
     </div>

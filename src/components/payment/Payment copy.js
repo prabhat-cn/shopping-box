@@ -67,45 +67,19 @@ const PaymentForm = () => {
         <>
         {!success ?
         
-        <form onSubmit={handleSubmit} className="mb-4" >
-
-            {/* <TextField
-                id="cardNumber"
-                label="Card Number"
-                variant="outlined"
-                placeholder="Enter Your Card Number"
-                fullWidth
-                margin="normal"
-                name="cardNumber"
-            />
-            <TextField
-                id="cardMonth"
-                label="Card Month"
-                variant="outlined"
-                placeholder="Enter Your Card Month"
-                fullWidth
-                margin="normal"
-                name="cardMonth"
-            />
-            <TextField
-                id="cardYear"
-                label="Card Year"
-                variant="outlined"
-                placeholder="Enter Your Card Year"
-                fullWidth
-                margin="normal"
-                name="cardYear"
-            />
-            
-            <CardElement />
-             */}
-            <CardElement options={CARD_OPTIONS}/>
-            <Button
+        <form onSubmit={handleSubmit} className="FormGroup mb-4" >
+            <div className="FormRow">
+                    <CardElement options={CARD_OPTIONS}/>
+                </div>
+                <div className="mt-4">
+                <Button
                 className=''
                 variant="contained"
                 color="primary">
                 Pay Now
             </Button>
+                </div>
+            
         </form>
         :
         <div>
