@@ -13,7 +13,15 @@ import {loadStripe} from '@stripe/stripe-js';
 // const stripeTestPromise = loadStripe(PUBLIC_KEY);
 
 
-const Items = () => {
+function Items() {
+
+    // stripe
+  const onToken = (token) => {
+        
+    console.log('token->', token);
+}
+
+
     const [ searchItem, setSearchItem ] = useState('');
     // const [ sortPrice, setSortPrice ] = useState([]);
     
@@ -115,6 +123,14 @@ const Items = () => {
                             </div>
                             
                         </div>
+                                
+                                <StripeCheckout
+                                stripeKey="pk_test_51IqzWcSDIz5xW9l7w2srw2xfPairSPsNrNqWFAIA6ThAKifLXZvZJjbi2CfJXcTnrSkS14VmTlNusnwS8Dlo26e800erVbrusq"
+                                token={onToken}
+                                name="Box Contents"
+                                amount={boxData.map(m => m.howMany * m.price).reduce((a, b) => a + b, 0) *100}
+                                currency="INR"
+                                />
                             
                     </div>
             </div>

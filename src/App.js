@@ -7,28 +7,21 @@ import { CssBaseline, Container, Paper, Box } from "@material-ui/core";
 import './App.css';
 
 import LinearStepper from './components/LinearStepper';
-import CategoryBox from './components/CategoryBox';
+import Items from './components/Items';
 
 
 const App = () => {
-  // stripe
-  const onToken = (token) => {
-        
-    console.log('token->', token);
-}
+  
   return (
     <>
 
-    <StripeCheckout
-                            stripe="pk_test_51IqzWcSDIz5xW9l7w2srw2xfPairSPsNrNqWFAIA6ThAKifLXZvZJjbi2CfJXcTnrSkS14VmTlNusnwS8Dlo26e800erVbrusq"
-                            token={onToken}
-                            />
+    
     <Provider store= {store}>
     <Router>
     <CssBaseline />
       <Container component={Box} p={4}>
         <Paper component={Box} p={3}>
-      {/* <StepperMenu /> */}
+      <Items />
       {/* <LinearStepper /> */}
       <div className="App">
         <Switch>
