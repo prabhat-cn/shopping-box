@@ -28,7 +28,7 @@ const App = () => {
         <Switch>
         <Route exact path='/' component={LinearStepper} />
           <Route exact path='/categoryBox' component={CategoryBox} />
-          <Route exact path='/category/items' component={Items} />
+          <Route exact path='/items' component={Items} />
           {/* <Route exact path='*'>404 Not Found!</Route> */}
         </Switch>
     </div>
