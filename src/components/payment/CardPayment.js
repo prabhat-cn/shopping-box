@@ -44,6 +44,7 @@ const CardPayment = () => {
   };
 
   return (
+    <div className="card-pay">
     <form>
       <CardElement
         options={{
@@ -61,10 +62,11 @@ const CardPayment = () => {
           },
         }}
       />
-      <button type="button" onClick={handleSubmit} disabled={!stripe}>
-        Pay
+      <button type="button" className="btn-primary" onClick={handleSubmit} disabled={!stripe}>
+        Pay Now
       </button>
     </form>
+    </div>
   );
 };
 

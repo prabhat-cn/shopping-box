@@ -24,10 +24,13 @@ const StripeContainer = () => {
 
     return (
         <>
+         <div className="container whole-container">
+             
             <h1>You need to pay: ${amount}</h1>
             <Elements stripe={stripeTestPromise} options={ELEMENTS_OPTIONS}>
                 <CardPayment />
             </Elements>
+         </div>
         </>
     )
 }

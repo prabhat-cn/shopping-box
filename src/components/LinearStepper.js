@@ -12,6 +12,7 @@ import CategoryBox from './CategoryBox';
 import Items from './Items';
 import StripeContainer from "./payment/StripeContainer";
 import spatula from '../assets/spatula.jpg'
+import OrderItems from "./OrderItems";
 
 const useStyles = makeStyles((theme) => ({
   button: {
@@ -45,9 +46,7 @@ function getStepContent(step) {
       );
     case 3:
       return (
-        <StripeContainer>
-         <StripeContainer />
-        </StripeContainer>
+        <OrderItems />
       );
     default:
       return "unknown step";

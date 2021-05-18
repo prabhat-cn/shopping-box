@@ -233,3 +233,62 @@ h3 {
 	cursor: pointer;
 	background: transparent;
   }
+
+  .card-pay {
+    background: #a8c2e8;
+    padding-right: 30px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.card-pay button {
+    margin: 0 14px;
+}
+
+.card-pay button {
+    margin: 0 14px;
+    padding: 5px 15px;
+}
+
+.col-md-12.flex-cart tr:nth-child(even) {
+    box-shadow: -1px 3px #6577a7;
+    border: 1px solid #4e4766;
+}
+
+.col-md-12.flex-cart tr:nth-child(odd) {
+    box-shadow: -1px 3px #b94065;
+    border: 1px solid #5d2a3e;
+}
+
+.col-md-12.flex-cart tr:nth-child(hidden) {
+    display:none;
+}
+
+/* .col-md-12.flex-cart tr:nth-child(1) {
+	max-width: 10px;
+  } */
+
+.col-md-12.flex-cart tr {
+    width: 100%;
+    display: table;
+    /* margin-bottom: 17px; */
+}
+
+.col-md-12.fl-right h3 {
+    /* float: right; */
+    text-align: right;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
