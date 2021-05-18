@@ -3,6 +3,15 @@ import { useSelector, useDispatch } from 'react-redux'
 import { increment, decrement, sort, addToCart, removeFromCart, addQuantity, subQuantity, emptyCart } from '../store/boxSlice'
 import { uniqBy, orderBy } from 'lodash';
 import  NumericInput  from 'react-numeric-input';
+import StripeCheckout from 'react-stripe-checkout';
+import {loadStripe} from '@stripe/stripe-js';
+
+
+// const PUBLIC_KEY = "pk_test_51IqzWcSDIz5xW9l7w2srw2xfPairSPsNrNqWFAIA6ThAKifLXZvZJjbi2CfJXcTnrSkS14VmTlNusnwS8Dlo26e800erVbrusq";
+
+
+// const stripeTestPromise = loadStripe(PUBLIC_KEY);
+
 
 const Items = () => {
     const [ searchItem, setSearchItem ] = useState('');
@@ -18,6 +27,7 @@ const Items = () => {
     const handleChange = e => {
         setSearchItem(e.target.value)
     }
+    
 
     return (
         <>
@@ -105,6 +115,7 @@ const Items = () => {
                             </div>
                             
                         </div>
+                            
                     </div>
             </div>
             </div>
