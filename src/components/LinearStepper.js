@@ -32,54 +32,22 @@ function getStepContent(step) {
   switch (step) {
     case 0:
       return (
-        <>
-          <CategoryBox />
-        </>
+        <CategoryBox />
       );
 
     case 1:
       return (
-        <>
           <Items />
-        </>
       );
     case 2:
       return (
-        <>
-          <TextField
-            id="address1"
-            label="Address 1"
-            variant="outlined"
-            placeholder="Enter Your Address 1"
-            fullWidth
-            margin="normal"
-            name="address1"
-          />
-          <TextField
-            id="address2"
-            label="Address 2"
-            variant="outlined"
-            placeholder="Enter Your Address 2"
-            fullWidth
-            margin="normal"
-            name="address2"
-          />
-          <TextField
-            id="country"
-            label="Country"
-            variant="outlined"
-            placeholder="Enter Your Country Name"
-            fullWidth
-            margin="normal"
-            name="country"
-          />
-        </>
+        <StripeContainer />
       );
     case 3:
       return (
-        <>
+        <StripeContainer>
          <StripeContainer />
-        </>
+        </StripeContainer>
       );
     default:
       return "unknown step";

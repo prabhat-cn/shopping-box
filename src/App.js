@@ -15,28 +15,25 @@ const App = () => {
   
   return (
     <>
-
-    
-    <Provider store= {store}>
-    <Router>
-    <CssBaseline />
-      <Container component={Box} p={4}>
-        <Paper component={Box} p={3}>
-      {/* <Items /> */}
-      {/* <LinearStepper /> */}
-      <div className="App">
-        <Switch>
-        <Route exact path='/' component={LinearStepper} />
-          <Route exact path='/categoryBox' component={CategoryBox} />
-          <Route exact path='/items' component={Items} />
-          {/* <Route exact path='*'>404 Not Found!</Route> */}
-        </Switch>
-    </div>
-    </Paper>
-      </Container>
-    </Router>
-    </Provider>
-
+      <Provider store={store}>
+        <Router>
+          <CssBaseline />
+          <Container component={Box} p={4}>
+            <Paper component={Box} p={3}>
+              {/* <Items /> */}
+              <LinearStepper />
+              <div className="App">
+                <Switch>
+                  {/* <Route exact path='/' component={LinearStepper} />
+                  <Route exact path='/categoryBox' component={CategoryBox} />
+                  <Route exact path='/items' component={Items} /> */}
+                  {/* <Route exact path='*'>404 Not Found!</Route> */}
+                </Switch>
+              </div>
+            </Paper>
+          </Container>
+        </Router>
+      </Provider>
     </>
     
   );

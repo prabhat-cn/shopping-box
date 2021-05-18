@@ -13,7 +13,7 @@ const CategoryBox = (props) => {
 
     const selectBox = (type) => {
         dispatch(selectedBox(type));
-        history.push("/items")
+        // history.push("/items")
     }
 
     return (

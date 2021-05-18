@@ -330,7 +330,9 @@ const boxSlice = createSlice({
         );
       },
 
-
+      paymentStatus: (state, action) => {
+        state.paymentStatus = action.payload;
+      }
 
     }
 });
@@ -347,7 +349,8 @@ export const {
   removeFromCart, 
   addQuantity, 
   subQuantity, 
-  emptyCart
+  emptyCart,
+  paymentStatus
 } = boxSlice.actions
 export default boxSlice.reducer
 
