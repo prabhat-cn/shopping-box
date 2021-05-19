@@ -1,12 +1,29 @@
-import React, { useState } from 'react'
+import React, {useState, useEffect} from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { increment, decrement, sort } from '../store/boxSlice'
+import { increment, decrement, sort, addToCart, removeFromCart, addQuantity, subQuantity, emptyCart } from '../store/boxSlice'
 import { uniqBy, orderBy } from 'lodash';
+import  NumericInput  from 'react-numeric-input';
+import StripeCheckout from 'react-stripe-checkout';
+import {loadStripe} from '@stripe/stripe-js';
+
+
+// const PUBLIC_KEY = "pk_test_51IqzWcSDIz5xW9l7w2srw2xfPairSPsNrNqWFAIA6ThAKifLXZvZJjbi2CfJXcTnrSkS14VmTlNusnwS8Dlo26e800erVbrusq";
+
+
+// const stripeTestPromise = loadStripe(PUBLIC_KEY);
 
 
 function Items() {
 
-   const [ searchItem, setSearchItem ] = useState('');
+    // stripe
+  const onToken = (token) => {
+        
+    console.log('token->', token);
+}
+
+
+    const [ searchItem, setSearchItem ] = useState('');
+    // const [ sortPrice, setSortPrice ] = useState([]);
     
     const dispatch = useDispatch();    
     
@@ -87,6 +104,12 @@ function Items() {
                                                 </>
                                                 
                                             ): null
+                                            // <>
+                                            //  <div className="col-sm-4 col-md-12 col-lg-12 box-slice2" >
+                                            //  <p className="mt-2 mb-0 text-center" style={{fontSize: "18px"}}>No Box Item Found</p>
+                                            //     </div>
+                                            
+                                            // </>
                                             }
                                             
                                     </div>
@@ -100,6 +123,14 @@ function Items() {
                             </div>
                             
                         </div>
+                                
+                                <StripeCheckout
+                                stripeKey="pk_test_51IqzWcSDIz5xW9l7w2srw2xfPairSPsNrNqWFAIA6ThAKifLXZvZJjbi2CfJXcTnrSkS14VmTlNusnwS8Dlo26e800erVbrusq"
+                                token={onToken}
+                                name="Box Contents"
+                                amount={boxData.map(m => m.howMany * m.price).reduce((a, b) => a + b, 0) *100}
+                                currency="INR"
+                                />
                             
                     </div>
             </div>
@@ -136,7 +167,9 @@ function Items() {
                         
                 <div className="col-sm-4 col-md-4 col-lg-4">
                     <div className="div-inner1">
-                        
+                        {/* <input type="text" value={searchItem} placeholder="Sort by category..." onChange={(e) => {
+                            setSearchItem(e.target.value);
+                        }}/> */}
                         <input 
                             style={{
                             height: "40px",
@@ -207,6 +240,7 @@ function Items() {
                     </>
                     ): 
                     <>
+                        {/* <NumericInput value={data.howMany} mobile className="form-control" onClick={() => dispatch(decrement(data))} onClick={() => dispatch(increment(data))}/> */}
                         <button type='button' onClick={() => dispatch(decrement(data))}>-</button>
                             <input type="text" value={data.howMany} className="input-count" style={{textAlign: "center"}} />
                         <button type='button' onClick={() => dispatch(increment(data))}>+</button>
