@@ -284,7 +284,15 @@ h3 {
     display: inline-block;
 }
 
-.col-md-12.fl-right p {
+.pdf-butt {
+	background: #ea1010;
+    text-align: center;
+    font-size: 15px;
+    color: #fff;
+    padding: 12px 0;
+}
+
+/* .col-md-12.fl-right p {
     background: #ea1010;
     text-align: center;
     font-size: 15px;
@@ -292,6 +300,13 @@ h3 {
     padding: 12px 0;
 }
 
+.col-md-12.fl-right button {
+    background: #ea1010;
+    text-align: center;
+    font-size: 15px;
+    color: #fff;
+    padding: 12px 0;
+} */
 
 
 
