@@ -43,7 +43,7 @@ const options = {
 
   return (
     <div className="container whole-container">
-       <Pdf targetRef={ref} filename="invoice.pdf" >
+       <Pdf targetRef={ref} filename={`invoice-${+new Date()}.pdf`} >
               {({ toPdf }) => 
 
                 <button className="pdf-butt" type="button" onClick={toPdf}>
