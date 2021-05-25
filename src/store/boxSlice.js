@@ -6,7 +6,7 @@ const initialState = {
         {
           id: 1,
           name: 'Black Image',
-          category: 'liquid',
+          category: 'Liquid',
           price: 10,
           priceUnit: '$',
           image: '#607d8b',
@@ -16,7 +16,7 @@ const initialState = {
         {
           id: 2,
           name: 'White Image',
-          category: 'solid',
+          category: 'Solid',
           price: 20,
           priceUnit: '$',
           image: '#899ba2',
@@ -26,7 +26,7 @@ const initialState = {
         {
           id: 3,
           name: 'Black Image',
-          category: 'liquid',
+          category: 'Liquid',
           price: 30,
           priceUnit: '$',
           image: '#607d8b',
@@ -36,7 +36,7 @@ const initialState = {
         {
           id: 4,
           name: 'White Image',
-          category: 'solid',
+          category: 'Solid',
           price: 30,
           priceUnit: '$',
           image: '#899ba2',
@@ -46,7 +46,7 @@ const initialState = {
         {
           id: 5,
           name: 'Black Image',
-          category: 'liquid',
+          category: 'Liquid',
           price: 50,
           priceUnit: '$',
           image: '#607d8b',
@@ -56,7 +56,7 @@ const initialState = {
         {
           id: 6,
           name: 'White Image',
-            category: 'solid',
+          category: 'Solid',
           price: 60,
           priceUnit: '$',
           image: '#899ba2',
@@ -66,7 +66,7 @@ const initialState = {
         {
           id: 7,
           name: 'Black Image',
-          category: 'liquid',
+          category: 'Liquid',
           price: 70,
           priceUnit: '$',
           image: '#607d8b',
@@ -76,7 +76,7 @@ const initialState = {
         {
           id: 8,
           name: 'White Image',
-          category: 'solid',
+          category: 'Solid',
           price: 80,
           priceUnit: '$',
           image: '#899ba2',
@@ -86,7 +86,7 @@ const initialState = {
         {
           id: 9,
           name: 'Black Image',
-          category: 'liquid',
+          category: 'Liquid',
           price: 90,
           priceUnit: '$',
           image: '#607d8b',
@@ -96,7 +96,7 @@ const initialState = {
         {
           id: 10,
           name: 'White Image',
-          category: 'solid',
+          category: 'Solid',
           price: 10,
           priceUnit: '$',
           image: '#899ba2',
@@ -108,7 +108,7 @@ const initialState = {
     {
       id: 1,
       name: 'Black Image',
-      category: 'liquid',
+      category: 'Liquid',
       price: 10,
       priceUnit: '$',
       image: '#607d8b',
@@ -118,7 +118,7 @@ const initialState = {
     {
       id: 2,
       name: 'White Image',
-      category: 'solid',
+      category: 'Solid',
       price: 20,
       priceUnit: '$',
       image: '#899ba2',
@@ -128,7 +128,7 @@ const initialState = {
     {
       id: 3,
       name: 'Black Image',
-      category: 'liquid',
+      category: 'Liquid',
       price: 30,
       priceUnit: '$',
       image: '#607d8b',
@@ -138,7 +138,7 @@ const initialState = {
     {
       id: 4,
       name: 'White Image',
-      category: 'solid',
+      category: 'Solid',
       price: 30,
       priceUnit: '$',
       image: '#899ba2',
@@ -148,7 +148,7 @@ const initialState = {
     {
       id: 5,
       name: 'Black Image',
-      category: 'liquid',
+      category: 'Liquid',
       price: 50,
       priceUnit: '$',
       image: '#607d8b',
@@ -158,7 +158,7 @@ const initialState = {
     {
       id: 6,
       name: 'White Image',
-      category: 'solid',
+      category: 'Solid',
       price: 60,
       priceUnit: '$',
       image: '#899ba2',
@@ -168,7 +168,7 @@ const initialState = {
     {
       id: 7,
       name: 'Black Image',
-      category: 'liquid',
+      category: 'Liquid',
       price: 70,
       priceUnit: '$',
       image: '#607d8b',
@@ -178,7 +178,7 @@ const initialState = {
     {
       id: 8,
       name: 'White Image',
-      category: 'solid',
+      category: 'Solid',
       price: 80,
       priceUnit: '$',
       image: '#899ba2',
@@ -188,7 +188,7 @@ const initialState = {
     {
       id: 9,
       name: 'Black Image',
-      category: 'liquid',
+      category: 'Liquid',
       price: 90,
       priceUnit: '$',
       image: '#607d8b',
@@ -198,7 +198,7 @@ const initialState = {
     {
       id: 10,
       name: 'White Image',
-      category: 'solid',
+      category: 'Solid',
       price: 10,
       priceUnit: '$',
       image: '#899ba2',
@@ -330,7 +330,9 @@ const boxSlice = createSlice({
         );
       },
 
-
+      paymentStatus: (state, action) => {
+        state.paymentStatus = action.payload;
+      }
 
     }
 });
@@ -347,7 +349,8 @@ export const {
   removeFromCart, 
   addQuantity, 
   subQuantity, 
-  emptyCart
+  emptyCart,
+  paymentStatus
 } = boxSlice.actions
 export default boxSlice.reducer
 

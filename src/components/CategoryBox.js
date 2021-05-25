@@ -1,6 +1,7 @@
 import React from 'react'
 // import { Link } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
+import {useHistory} from 'react-router-dom'
 import { selectedBox } from '../store/boxSlice'
 
 const CategoryBox = (props) => {
@@ -8,8 +9,11 @@ const CategoryBox = (props) => {
     const boxValue = useSelector((boxState) => boxState.boxName.selectedBoxType);
     // console.log('boxData', boxData)
 
+    const history = useHistory()
+
     const selectBox = (type) => {
-        dispatch(selectedBox(type))
+        dispatch(selectedBox(type));
+        // history.push("/items")
     }
 
     return (

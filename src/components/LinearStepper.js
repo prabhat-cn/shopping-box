@@ -12,6 +12,7 @@ import CategoryBox from './CategoryBox';
 import Items from './Items';
 import StripeContainer from "./payment/StripeContainer";
 import spatula from '../assets/spatula.jpg'
+import OrderItems from "./OrderItems";
 
 const useStyles = makeStyles((theme) => ({
   button: {
@@ -32,54 +33,20 @@ function getStepContent(step) {
   switch (step) {
     case 0:
       return (
-        <>
-          <CategoryBox />
-        </>
+        <CategoryBox />
       );
 
     case 1:
       return (
-        <>
           <Items />
-        </>
       );
     case 2:
       return (
-        <>
-          <TextField
-            id="address1"
-            label="Address 1"
-            variant="outlined"
-            placeholder="Enter Your Address 1"
-            fullWidth
-            margin="normal"
-            name="address1"
-          />
-          <TextField
-            id="address2"
-            label="Address 2"
-            variant="outlined"
-            placeholder="Enter Your Address 2"
-            fullWidth
-            margin="normal"
-            name="address2"
-          />
-          <TextField
-            id="country"
-            label="Country"
-            variant="outlined"
-            placeholder="Enter Your Country Name"
-            fullWidth
-            margin="normal"
-            name="country"
-          />
-        </>
+        <StripeContainer />
       );
     case 3:
       return (
-        <>
-         <StripeContainer />
-        </>
+        <OrderItems />
       );
     default:
       return "unknown step";

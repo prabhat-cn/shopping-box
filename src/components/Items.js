@@ -1,12 +1,12 @@
-import React, {useState, useEffect} from 'react'
+import React, { useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { increment, decrement, sort, addToCart, removeFromCart, addQuantity, subQuantity, emptyCart } from '../store/boxSlice'
+import { increment, decrement, sort } from '../store/boxSlice'
 import { uniqBy, orderBy } from 'lodash';
-import  NumericInput  from 'react-numeric-input';
 
-const Items = () => {
-    const [ searchItem, setSearchItem ] = useState('');
-    // const [ sortPrice, setSortPrice ] = useState([]);
+
+function Items() {
+
+   const [ searchItem, setSearchItem ] = useState('');
     
     const dispatch = useDispatch();    
     
@@ -18,6 +18,7 @@ const Items = () => {
     const handleChange = e => {
         setSearchItem(e.target.value)
     }
+    
 
     return (
         <>
@@ -86,12 +87,6 @@ const Items = () => {
                                                 </>
                                                 
                                             ): null
-                                            // <>
-                                            //  <div className="col-sm-4 col-md-12 col-lg-12 box-slice2" >
-                                            //  <p className="mt-2 mb-0 text-center" style={{fontSize: "18px"}}>No Box Item Found</p>
-                                            //     </div>
-                                            
-                                            // </>
                                             }
                                             
                                     </div>
@@ -105,6 +100,7 @@ const Items = () => {
                             </div>
                             
                         </div>
+                            
                     </div>
             </div>
             </div>
@@ -140,9 +136,7 @@ const Items = () => {
                         
                 <div className="col-sm-4 col-md-4 col-lg-4">
                     <div className="div-inner1">
-                        {/* <input type="text" value={searchItem} placeholder="Sort by category..." onChange={(e) => {
-                            setSearchItem(e.target.value);
-                        }}/> */}
+                        
                         <input 
                             style={{
                             height: "40px",
@@ -213,7 +207,6 @@ const Items = () => {
                     </>
                     ): 
                     <>
-                        {/* <NumericInput value={data.howMany} mobile className="form-control" onClick={() => dispatch(decrement(data))} onClick={() => dispatch(increment(data))}/> */}
                         <button type='button' onClick={() => dispatch(decrement(data))}>-</button>
                             <input type="text" value={data.howMany} className="input-count" style={{textAlign: "center"}} />
                         <button type='button' onClick={() => dispatch(increment(data))}>+</button>
