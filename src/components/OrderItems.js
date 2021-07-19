@@ -116,8 +116,6 @@ const options = {
                         ): null
                         }
                       </tr>
-                    
-
                     ))
                   }
                   <div className="col-md-6">
