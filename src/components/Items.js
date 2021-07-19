@@ -64,7 +64,7 @@ function Items() {
                                         }
                                 </div>
                             ))}
-                    </div>
+                        </div>
                    
                 
                     <div className="col-sm-5 col-md-5 col-lg-5 right-pan">
@@ -74,21 +74,20 @@ function Items() {
                             <div className="section one-sec">
                                 {boxData.map((data) => (
                                     <div className="div-inner1 box-slice1" key={data.id}>
-                                            {data.howMany > 0 ? (
-                                                <>
-                                                <div className="col-md-6">
-                                                    <h5 className="span-count">{data.name}</h5>
-                                                    </div>
-                                                    <div className="col-md-6">
-                                                    <h3>
-                                                    ${data.howMany * data.price}
-                                                    </h3>
+                                        {data.howMany > 0 ? (
+                                            <>
+                                            <div className="col-md-6">
+                                                <h5 className="span-count">{data.name}</h5>
                                                 </div>
-                                                </>
-                                                
-                                            ): null
-                                            }
+                                                <div className="col-md-6">
+                                                <h3>
+                                                ${data.howMany * data.price}
+                                                </h3>
+                                            </div>
+                                            </>
                                             
+                                        ): null
+                                        }
                                     </div>
                                 ))}
                             </div>
