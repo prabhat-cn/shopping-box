@@ -78,8 +78,8 @@ function Items() {
                                             <>
                                             <div className="col-md-6">
                                                 <h5 className="span-count">{data.name}</h5>
-                                                </div>
-                                                <div className="col-md-6">
+                                            </div>
+                                            <div className="col-md-6">
                                                 <h3>
                                                 ${data.howMany * data.price}
                                                 </h3>
@@ -95,7 +95,7 @@ function Items() {
                             
                             <hr/>
                             <div className="col-md-12">
-                                Total Price: ${boxData.map(m => m.howMany * m.price).reduce((a, b) => a + b, 0)}
+                               Total Price: ${boxData.map(m => m.howMany * m.price).reduce((a, b) => a + b, 0)}
                             </div>
                             
                         </div>
